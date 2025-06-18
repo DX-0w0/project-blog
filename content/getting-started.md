@@ -6,6 +6,7 @@ excerpt: 'Building a new website can be difficult, however knowing the basic mak
 isFeatured: true
 ---
 
-# This is a title
+# Getting Started
 
-This is a text with [link](https://google.com)
+Welcome you found this page. 
+Click here and redirect to [google homepage](https://google.com)
