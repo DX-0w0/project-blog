@@ -8,5 +8,16 @@ isFeatured: true
 
 # Getting Started
 
-Welcome you found this page. 
+Welcome you found this page.
 Click here and redirect to [google homepage](https://google.com)
+
+## Number of steps
+
+- first
+- second
+- third
+- fourth
+
+![starting out](start.jpg)
+
+... More ...
