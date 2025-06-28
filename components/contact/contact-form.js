@@ -44,7 +44,7 @@ export default function ContactForm() {
     setRequestStatus('pending')
 
     try {
-      sendContactData({
+      await sendContactData({
         email: enteredEmail,
         name: enteredName,
         message: enteredMessage,
