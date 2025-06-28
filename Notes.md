@@ -84,3 +84,6 @@ module.exports = nextConfig;
 
 ```
 
+## Next Export
+Instead of `npm run build` that uses server side as well (`.next` folder)
+Using the `next export` it builds a static (`out` folder) for a static page that doesn't require any server side render
