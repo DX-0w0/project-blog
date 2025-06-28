@@ -44,3 +44,43 @@ module.exports = () => {
 
 npm run build --> create the production build (.next folder)
 npm start --> run the server of the production build
+
+## Using secret .env
+Don't need to install dotenv package for next.js itself since process.env is already build-in
+```
+// import dotenv from 'dotenv'
+// dotenv.config()
+```
+
+example are 
+```
+// pages/api/hello.js
+export default function handler(req, res) {
+  res.status(200).json({ secret: process.env.MY_SECRET });
+}
+
+// middleware.js
+import { NextResponse } from 'next/server';
+
+export function middleware(request) {
+  console.log(process.env.MY_SECRET); // Available at build time
+  return NextResponse.next();
+}
+
+// next.config.js
+const nextConfig = {
+  env: {
+    MY_API_KEY: process.env.MY_API_KEY,
+  },
+};
+
+// pages/index.js
+export async function getServerSideProps() {
+  const apiKey = process.env.MY_API_KEY;
+  // Fetch data from external API
+  return { props: { apiKey } };
+}
+module.exports = nextConfig;
+
+```
+
