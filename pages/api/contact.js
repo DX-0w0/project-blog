@@ -1,7 +1,7 @@
 // /api/contact
 import { MongoClient } from 'mongodb'
-import dotenv from 'dotenv'
-dotenv.config()
+// import dotenv from 'dotenv'
+// dotenv.config()
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -26,18 +26,20 @@ export default async function handler(req, res) {
       message,
     }
 
-    console.log('newMessage', newMessage)
+    // console.log('newMessage', newMessage)
+
+    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.x7oroam.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
     let client
 
     try {
-      client = await MongoClient.connect(process.env.MONGODB)
+      client = await MongoClient.connect(connectionString)
     } catch (error) {
       res.status(500).json({ message: 'Could not connect' })
       return
     }
 
-    const db = client.db('contacts')
+    const db = client.db(`${process.env.mongodb_database}`)
 
     try {
       await db.collection('messages').insertOne(newMessage)

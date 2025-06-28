@@ -13,7 +13,7 @@ export default function Hero() {
         />
       </div>
       <h1>Hello World XD !!</h1>
-      <p>Host any blogs and record the memories </p>
+      <p>Hosted blogs and record the memories </p>
     </section>
   )
 }
